@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <base href="${request.contextPath}/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption' rel='stylesheet' type='text/css' />
+
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap-theme.min.css"/>
+    <h:outputStylesheet library="beyond" name="css/beyond.min.css"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['/favicon.ico']}"/>
+</h:head>
+<h:body>
+
+    <p:ajaxStatus onstart="showStatusDialog();" onsuccess="hideStatusDialog();" />
+
+    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false"
+              showHeader="false">
+        <p:graphicImage library="img" name="ajaxloadingbar.gif"/>
+    </p:dialog>
+
+    <div class="navbar navbar-fixed-top">
+
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small><p:graphicImage library="img" name="conexia_logo.png" title="Conexia S.A.S."/></small>
+                    </a>
+                </div>
+                <div class="navbar-header pull-right">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li><a class="login-area">
+                                <section>
+                                    <h2>
+                                        <span class="profile"><span>#{usuarioAplicacion}</span></span>
+                                    </h2>
+                                </section>
+                            </a>
+                            </li>
+                        </ul>
+                        <div class="setting">
+                            <h:form id="frmLogOut">
+                                <p:link styleClass="btn btn-link" href="/logout.do">
+                                    <i class="icon fa fa-sign-out"/>
+                                </p:link>
+                            </h:form>
+                        </div>
+                        <!-- Settings -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container container-fluid">
+        <div class="page-container">
+
+            <ui:insert name="menu">
+                <ui:include src="/template/menu.xhtml" />
+            </ui:insert>
+
+            <div class="page-content">
+                <div class="page-header position-relative page-header-fixed">
+                    <div class="header-title">
+                        <h1><ui:insert name="title"/></h1>
+                    </div>
+                </div>
+                <div class="page-body">
+                    <ui:insert name="content"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h:outputScript library="bootstrap" name="js/bootstrap.min.js"/>
+    <h:outputScript library="js" name="skins.min.js"/>
+    <h:outputScript library="beyond" name="js/beyond.min.js"/>
+
+    <p:growl autoUpdate="true"/>
+
+    <script>
+        // timer
+        var statusDlgTimer = null;
+
+        // show delayed dialog
+        function showStatusDialog() {
+            if ( statusDlgTimer == null)
+                statusDlgTimer = setTimeout("PF('statusDialog').show()", 500);
+        }
+
+        // hide dialog / cancel timer
+        function hideStatusDialog() {
+            if ( statusDlgTimer != null ) {
+                clearTimeout(statusDlgTimer);
+                PF('statusDialog').hide();
+                statusDlgTimer = null;
+            }
+        }
+    </script>
+</h:body>
+</html>

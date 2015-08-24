@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soft</groupId>
+    <artifactId>Restaurante</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>Restaurante</name>
+
+    <properties>
+        <primefaces-version>5.2</primefaces-version>
+        <prettyfaces.version>2.0.12.Final</prettyfaces.version>
+        <primefaces_theme.version>1.0.10</primefaces_theme.version>
+        <commons_fileupload.version>1.3</commons_fileupload.version>
+        <jasig.cas.version>3.3.0</jasig.cas.version>
+        <junit.version>4.12</junit.version>
+        <omnifaces.version>2.0</omnifaces.version>
+        <jodatime.version>2.6</jodatime.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+
+        <one.cdifactory>1.1</one.cdifactory>
+        <one.webutils>1.6</one.webutils>
+        <one.exceptions>1.0</one.exceptions>
+        <one.seguridadutils>1.1</one.seguridadutils>
+
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+
+        <maven-checkstyle-plugin.version>2.5</maven-checkstyle-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.0.2.Final</version>
+            </plugin>
+	    <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.4</version>
+                <configuration>
+                    <linkXRef>true</linkXRef>
+                    <targetJdk>1.8</targetJdk>
+		    <rulesets>
+                        <ruleset>${project.parent.parent.basedir}/Varios/pmd/ruleset-conexia.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Repositorio Propio -->
+    <repositories>
+        <repository>
+            <id>primefaces_themes_repo</id>
+            <url>http://repository.primefaces.org/</url>
+        </repository>
+        <repository>
+            <id>conexia_maven_repo</id>
+            <url>http://192.168.0.57:8080/archiva/repository/internal</url>
+        </repository>
+    </repositories>
+  <modules>
+    <module>RestauranteDef</module>
+    <module>RestauranteApp</module>
+  </modules>
+</project>

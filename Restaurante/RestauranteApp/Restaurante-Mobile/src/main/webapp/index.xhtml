@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+    <script>
+        function back(){
+            PrimeFaces.Mobile.navigate('#login',{
+                transition:'pop'
+            });
+ 
+        }
+    </script>
+   	<style type="text/css">
+   		.labelTitulo {
+   			font-weight: bold !important;
+   		}
+   	</style>
+</h:head>
+<h:body>
+    <pm:page id="login">
+        <pm:header >
+            <p:commandButton type="button" icon="ui-icon-bars" id="btn-basic" />
+            <div style="height:50px; text-align:center" >            	
+                <!--<img src="resources/images/logo-asmetsalud.png" style="width:6em; padding-top:3px"/>-->
+            </div>
+            
+        </pm:header>
+        <pm:content>
+            <h:form id="loginForm">
+                <p:growl id="growl" showDetail="true" />
+                <p:panelGrid columns="2" styleClass="ui-responsive" id="panelBusqueda" >			
+					    <p:outputLabel for="tipoIdentificacion" value="Tipo Identificacion" />
+					    <p:selectOneMenu id="tipoIdentificacion" value="" required="true" >
+					        <f:selectItem itemLabel="Seleccione" itemValue="" />
+					        <f:selectItem itemLabel="Adulto sin Identificación" itemValue="AS" />
+					        <f:selectItem itemLabel="Cédula Ciudadanía" itemValue="CC" />
+					        <f:selectItem itemLabel="Cédula de Extrangería" itemValue="CE" />
+					        <f:selectItem itemLabel="Menor sin Identificación" itemValue="MS" />
+					        <f:selectItem itemLabel="Pasaporte" itemValue="PA" />
+					        <f:selectItem itemLabel="Registro Civil" itemValue="RC" />
+					        <f:selectItem itemLabel="Tarjeta Identidad" itemValue="TI" />
+					        <f:selectItem itemLabel="Carné Diplomático" itemValue="CD" />
+					        <f:selectItem itemLabel="Número de Identificación Tributaria - NIT" itemValue="NI" />
+					        <f:selectItem itemLabel="Número Único de Identificación" itemValue="NU" />
+					    </p:selectOneMenu>
+						<p:outputLabel for="numeroIdentificacion" value="Numero Identificacion" />
+						<p:inputText id="numeroIdentificacion" placeholder="Numero Identificacion" 
+							type="search" value="" required="true"/>
+				</p:panelGrid>
+				<p:commandButton value="Buscar"  icon="ui-icon-search"></p:commandButton>        
+            </h:form>
+        </pm:content>
+        <pm:footer style="text-align:center">
+			<!--<img src="resources/images/loginconexia.png" style="padding-bottom:0.5em"/>-->
+        </pm:footer>
+    </pm:page>
+</h:body>
+</html>        
