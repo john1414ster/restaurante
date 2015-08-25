@@ -54,6 +54,7 @@
         <url-pattern>/faces/*</url-pattern>
         <url-pattern>*.faces</url-pattern>
         <url-pattern>*.page</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
     <env-entry>
@@ -88,7 +89,7 @@
     </mime-mapping>
 
     <welcome-file-list>
-        <welcome-file>index.page</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
 
 </web-app>

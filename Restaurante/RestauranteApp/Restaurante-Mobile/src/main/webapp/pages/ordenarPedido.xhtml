@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    <h:head>
+        <script>
+            function back() {
+                PrimeFaces.Mobile.navigate('#login', {
+                    transition: 'pop'
+                });
+
+            }
+        </script>
+        <style type="text/css">
+            .labelTitulo {
+                font-weight: bold !important;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <pm:page id="ordenarPedido">
+            <h:form id="ordenarPedidoForm">
+                <pm:header >
+                    <p:commandButton type="button" icon="ui-icon-bars" id="btn-basic" />
+                    <div style="height:50px; text-align:center" >            	
+                        <!--<img src="resources/images/logo-asmetsalud.png" style="width:6em; padding-top:3px"/>-->
+                    </div>
+                </pm:header>
+                <pm:content>
+                    <p:growl id="growl" showDetail="true" />
+                    <p:menu>
+                        <p:submenu label="Entradas">                            
+                            <p:menuitem icon="ui-icon-plus" value="Papas a la francesa"/>
+                            <p:menuitem icon="ui-icon-plus" value="Picada"/>
+                            <p:menuitem icon="ui-icon-plus" value="Arepas"/>
+                        </p:submenu>
+                        <p:submenu label="Platos fuertes">                            
+                            <p:menuitem icon="ui-icon-plus" value="Carne asada"/>
+                            <p:menuitem icon="ui-icon-plus" value="Cerdo en salsa de ciruela"/>
+                            <p:menuitem icon="ui-icon-plus" value="Pechuga a la plancha"/>
+                        </p:submenu>
+                        <p:submenu label="Combos">
+                            <p:menuitem icon="ui-icon-plus" value="Hamburguesa de media libra"/>
+                            <p:menuitem icon="ui-icon-plus" value="Mixta de carnes"/>
+                            <p:menuitem icon="ui-icon-plus" value="Pollo asado"/>
+                        </p:submenu>
+                        <p:submenu label="Bebidas">
+                            <p:menuitem icon="ui-icon-plus" value="Jugos naturales en agua"/>
+                            <p:menuitem icon="ui-icon-plus" value="Jugos naturales en leche"/>
+                            <p:menuitem icon="ui-icon-plus" value="Cerveza"/>
+                        </p:submenu>
+                        <p:submenu label="Postres">
+                            <p:menuitem icon="ui-icon-plus" value="Torta de vainilla"/>
+                            <p:menuitem icon="ui-icon-plus" value="Flan"/>
+                        </p:submenu>
+                    </p:menu>
+                </pm:content>
+                <p:overlayPanel for="btn-basic" widgetVar="pnl-basic" at="left"	showEffect="overlay">
+                    <h2>Menu</h2>
+                    <p:menu>
+                        <p:menuitem value="Ordenar pedido" url="/pages/ordenarPedido" />
+                        <p:menuitem value="Ver pedidos" url="#" />
+                        <p:menuitem value="Reportes" url="#" />
+                    </p:menu>
+                </p:overlayPanel>
+            </h:form>
+        </pm:page>
+    </h:body>
+</html>        
