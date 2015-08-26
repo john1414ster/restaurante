@@ -1,8 +1,7 @@
 package com.soft.services.view.boundary;
 
-import com.soft.definitions.view.BeanViewRemote;
+import com.soft.definitions.view.BeanViewLocal;
 import javax.ejb.LocalBean;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -13,9 +12,8 @@ import javax.ejb.TransactionAttributeType;
  */
 @Stateless
 @LocalBean
-@Remote(BeanViewRemote.class)
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-public class BeanViewBoundary implements BeanViewRemote {
+public class BeanViewBoundary implements BeanViewLocal {
     
 }
 

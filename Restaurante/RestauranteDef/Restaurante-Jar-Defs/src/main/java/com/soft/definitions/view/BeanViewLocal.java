@@ -4,6 +4,6 @@ package com.soft.definitions.view;
  *
  * @author jalvarado
  */
-public interface BeanViewRemote {
+public interface BeanViewLocal {
     
 }
