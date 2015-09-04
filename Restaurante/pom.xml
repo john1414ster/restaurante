@@ -68,10 +68,6 @@
             <id>primefaces_themes_repo</id>
             <url>http://repository.primefaces.org/</url>
         </repository>
-        <repository>
-            <id>conexia_maven_repo</id>
-            <url>http://192.168.0.57:8080/archiva/repository/internal</url>
-        </repository>
     </repositories>
   <modules>
     <module>RestauranteDef</module>
