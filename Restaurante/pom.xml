@@ -68,7 +68,6 @@
             <id>primefaces_themes_repo</id>
             <url>http://repository.primefaces.org/</url>
         </repository>
-        
     </repositories>
   <modules>
     <module>RestauranteDef</module>
