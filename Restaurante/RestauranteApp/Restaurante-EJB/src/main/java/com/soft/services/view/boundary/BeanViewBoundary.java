@@ -14,6 +14,7 @@ import javax.ejb.TransactionAttributeType;
 @LocalBean
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class BeanViewBoundary implements BeanViewLocal {
+
     
 }
 
