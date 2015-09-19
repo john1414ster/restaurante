@@ -12,8 +12,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -23,9 +21,7 @@ import javax.validation.constraints.NotNull;
  * @author jhon
  */
 @Entity
-@Table(name = "combo")
-@NamedQueries({
-    @NamedQuery(name = "Combo.findAll", query = "SELECT c FROM Combo c")})
+@Table(name = "combo", schema = "restaurante")
 public class Combo extends Descriptivo {
     
     @Basic(optional = false)

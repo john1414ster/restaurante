@@ -20,9 +20,11 @@ import javax.persistence.Table;
  * @author jhon
  */
 @Entity
-@Table(name = "categoria_producto")
-@NamedQueries({
-    @NamedQuery(name = "CategoriaProducto.findAll", query = "SELECT c FROM CategoriaProducto c")})
+@Table(name = "categoria_producto", schema = "restaurante")
+@NamedQueries({@NamedQuery(name = "CategoriaProducto.findAll", query = "select new com.soft.dto.maestros.CategoriaProductoDto(cp.id, cp.nombre, cp.descripcion) "
+        + "from CategoriaProducto cp where cp.deleted = false")   
+}
+)
 public class CategoriaProducto extends Descriptivo {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoriaProductoId", fetch = FetchType.LAZY)

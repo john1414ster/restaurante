@@ -14,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -25,9 +23,7 @@ import javax.validation.constraints.NotNull;
  * @author jhon
  */
 @Entity
-@Table(name = "producto")
-@NamedQueries({
-    @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")})
+@Table(name = "producto", schema = "restaurante")
 public class Producto extends Descriptivo {
     
     @Basic(optional = false)

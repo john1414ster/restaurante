@@ -17,8 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,9 +27,7 @@ import javax.validation.constraints.Size;
  * @author jhon
  */
 @Entity
-@Table(name = "sede")
-@NamedQueries({
-    @NamedQuery(name = "Sede.findAll", query = "SELECT s FROM Sede s")})
+@Table(name = "sede", schema = "restaurante")
 public class Sede extends Control {
     
     @Id

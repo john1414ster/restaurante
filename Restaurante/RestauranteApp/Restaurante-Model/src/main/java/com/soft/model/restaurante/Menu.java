@@ -10,8 +10,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,9 +18,7 @@ import javax.persistence.Table;
  * @author jhon
  */
 @Entity
-@Table(name = "menu")
-@NamedQueries({
-    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")})
+@Table(name = "menu", schema = "restaurante")
 public class Menu extends Descriptivo {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuId", fetch = FetchType.LAZY)

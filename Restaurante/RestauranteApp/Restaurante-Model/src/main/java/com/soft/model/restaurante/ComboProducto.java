@@ -15,8 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -24,9 +22,7 @@ import javax.persistence.Table;
  * @author jhon
  */
 @Entity
-@Table(name = "combo_producto")
-@NamedQueries({
-    @NamedQuery(name = "ComboProducto.findAll", query = "SELECT c FROM ComboProducto c")})
+@Table(name = "combo_producto", schema = "restaurante")
 public class ComboProducto extends Control {
     
     @Id
