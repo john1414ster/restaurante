@@ -3,13 +3,15 @@ package com.soft.services.view.boundary;
 import com.soft.definitions.view.MaestrosViewLocal;
 import com.soft.dto.maestros.CategoriaProductoDto;
 import com.soft.dto.maestros.TipoMedidaDto;
-import com.soft.util.exception.SoftBusinessException;
-import com.soft.util.exception.enums.CodigoMensajeErrorEnum;
+import com.soft.exceptions.SoftBusinessException;
+import com.soft.utils.exceptions.SoftExceptionUtils;
+import com.soft.utils.exceptions.enums.CodigoMensajeErrorEnum;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
@@ -26,13 +28,16 @@ public class MaestrosViewBoundary implements MaestrosViewLocal {
     @PersistenceContext
     private EntityManager em;
     
+    @Inject
+    private SoftExceptionUtils exceptionUtils;
+    
     @Override
     public List<CategoriaProductoDto> listarCategoriasProducto() throws SoftBusinessException {
         try {
             return em.createNamedQuery("CategoriaProducto.findAll", CategoriaProductoDto.class)
                     .getResultList();
         } catch (final PersistenceException e) {
-            throw new SoftBusinessException(CodigoMensajeErrorEnum.ERROR_LISTANDO_CATEGORIAS_PRODUCTO, e);
+            throw exceptionUtils.createBusinessException(CodigoMensajeErrorEnum.ERROR_LISTANDO_CATEGORIAS_PRODUCTO);
         }
     }
 
@@ -42,7 +47,7 @@ public class MaestrosViewBoundary implements MaestrosViewLocal {
             return em.createNamedQuery("TipoMedida.findAll", TipoMedidaDto.class)
                     .getResultList();
         } catch (final PersistenceException e) {
-            throw new SoftBusinessException(CodigoMensajeErrorEnum.ERROR_LISTANDO_TIPO_MEDIDA, e);
+            throw exceptionUtils.createBusinessException(CodigoMensajeErrorEnum.ERROR_LISTANDO_TIPO_MEDIDA);
         }
     }
 

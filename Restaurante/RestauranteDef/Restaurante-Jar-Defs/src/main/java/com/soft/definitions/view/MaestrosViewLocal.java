@@ -2,7 +2,8 @@ package com.soft.definitions.view;
 
 import com.soft.dto.maestros.CategoriaProductoDto;
 import com.soft.dto.maestros.TipoMedidaDto;
-import com.soft.util.exception.SoftBusinessException;
+import com.soft.exceptions.SoftBusinessException;
+
 import java.util.List;
 
 /**

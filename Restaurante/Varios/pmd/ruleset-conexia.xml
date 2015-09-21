@@ -17,6 +17,7 @@
      <exclude name="UnnecessaryConstructor"/>
      <exclude name="OnlyOneReturn"/>
      <exclude name="CallSuperInConstructor"/>
+     <exclude name="DataflowAnomalyAnalysis"/>
   </rule>
   <rule ref="rulesets/java/coupling.xml">
 	<exclude name="LawOfDemeter"/>
@@ -24,6 +25,7 @@
   <rule ref="rulesets/java/design.xml">
 	<exclude name="UncommentedEmptyConstructor"/>
 	<exclude name="ConfusingTernary"/>
+        <exclude name="PreserveStackTrace"/>
   </rule>
   <rule ref="rulesets/java/finalizers.xml"/>
   <rule ref="rulesets/java/imports.xml"/>

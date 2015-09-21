@@ -16,6 +16,8 @@
      <exclude name="AtLeastOneConstructor"/>
      <exclude name="UnnecessaryConstructor"/>
      <exclude name="OnlyOneReturn"/>
+     <exclude name="CallSuperInConstructor"/>
+     <exclude name="DataflowAnomalyAnalysis"/>
   </rule>
   <rule ref="rulesets/java/coupling.xml">
 	<exclude name="LawOfDemeter"/>

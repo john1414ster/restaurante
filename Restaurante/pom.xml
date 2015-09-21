@@ -72,5 +72,6 @@
   <modules>
     <module>RestauranteDef</module>
     <module>RestauranteApp</module>
+    <module>exceptions</module>
   </modules>
 </project>

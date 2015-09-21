@@ -3,7 +3,7 @@ package com.soft.wap.controller.facade;
 import com.soft.definitions.view.MaestrosViewLocal;
 import com.soft.dto.maestros.CategoriaProductoDto;
 import com.soft.dto.maestros.TipoMedidaDto;
-import com.soft.util.exception.SoftBusinessException;
+import com.soft.exceptions.SoftBusinessException;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
